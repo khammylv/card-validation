@@ -44,29 +44,27 @@ const validator = {
 },
 
 maskify : function (creditCardNumber) {
-  let validar = validator.isValid(creditCardNumber);
+  
   const cardEntrada = Array.from(creditCardNumber)
-  let cambio = cardEntrada;
   let oculto = []
  
- for (let i = 0; i < cambio.length; i++){
+ for (let i = 0; i < cardEntrada.length; i++){
     oculto.push('#')
 }
 let letras = cardEntrada.slice(- 4)
 let resulFinal = oculto.slice(0,- 4);
- let valido = resulFinal.join('') + letras.join('')
- let invalido = resulFinal.join('') +letras.join('')
 
-  if(validar == true){ 
-    return valido
-    
-  }else{
-    return invalido
-   
-  }
+
+
   
+return resulFinal.join('') + letras.join('');
+    
+ 
+    
+   
+  
+} 
 
-}
 };
 
 export default validator;
