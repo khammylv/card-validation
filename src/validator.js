@@ -5,22 +5,16 @@ const validator = {
     let cardPares = cards.filter((num, index) =>index % 2 != 0);
     let cardNum = cards.filter((num, index) =>index % 2 == 0);
     let dobles = cardPares.map((element) => element * 2);
-    let multCards = [];
-     
-        for (let doble of dobles) {
-         if(doble >=10){
-             multCards.push(doble);
-         }else{
-           cardNum.push(doble);
-         }
-        }
+ 
        
        
-         for (let i = 0; i < multCards.length; i++) {
-           if (multCards[i] >=10){
+         for (let i = 0; i < dobles.length; i++) {
+           if (dobles[i] >=10){
             
-             multCards[i] = parseInt(String(multCards[i]).charAt(0)) +  parseInt(String(multCards[i]).charAt(1))
-             cardNum.push(multCards[i])
+            dobles[i] = parseInt(String(dobles[i]).slice(0,1)) +  parseInt(String(dobles[i]).slice(-1))
+             cardNum.push(dobles[i])
+           }else{ 
+            cardNum.push(dobles[i]);
            }
            
           }

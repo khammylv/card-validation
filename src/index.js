@@ -9,39 +9,49 @@ formCard.addEventListener("submit", e=>{
     e.preventDefault();
    
     const entrada = document.getElementById("input-card")
-    const mensajeCard = document.getElementById("mensaje-card");
+    
     const cardNews = entrada.value;
     const numVal = /\D/g;
     const valnum = numVal.test(cardNews);
     let valor = cardNews.length
      
-    if(valor >=17 || valor <= 12) {
-      mensajeCard.innerHTML = "La tarjeta debe tener entre 13 y 16 números";
-      entrada.value = "";
-    }else{
-      if(cardNews === "" ||valnum == true ) {
-        mensajeCard.innerHTML = "Escribe mensaje valido";
+
+      if(valnum == true) {
+        modalLetras()
         entrada.value = "";
-      } else {
+      }else{    if(valor >=17 ||valor <= 12) {
+            modalNumeros()
+            entrada.value = "";
+      }else{
              mostrarNumero()
-             validarNumero()
-             //validator.isValid(document.getElementById("input-card"))
-             //validator.maskify(document.getElementById("input-card"))
-             entrada.value = "";
+            entrada.value = "";
             
             
               
         
       }
     }
-     
-});
+  } 
+);
+
+
 
 function mostrarNumero(){
-  const mensajeCard = document.getElementById("mensaje-card");
-  let mostrarNum = validator.maskify(document.getElementById("input-card").value);
-  let largoCard = mostrarNum.length;
+  const validarNum =  validator.isValid(document.getElementById("input-card").value);
+  const mostrarNum = validator.maskify(document.getElementById("input-card").value);
+  const mensajeValido = document.getElementById("numero_card_valid");
+  const mensajeInvalido = document.getElementById("numero_card_invalid");
+  const vistaForm = document.getElementById("form");
+  const vistaValid = document.getElementById("card_valid");
+  const vistaInvalido = document.getElementById("card_invalid");
+  
+
+  
+
+  let mensajeCard;
  
+  let largoCard = mostrarNum.length;
+ // mostrar en pantalla
   switch (largoCard){
       case 16:{
         let cadena = mostrarNum
@@ -49,8 +59,8 @@ function mostrarNumero(){
         let cadena3 = cadena.slice(8, 12);
         let cadena2 = cadena.slice(4,8);
         let cadena1 = cadena.slice(0, 4);
-        mensajeCard.innerHTML= cadena1 + " " + cadena2 + " " + cadena3 + " " + cadena4;
-        alert("16")
+        mensajeCard = cadena1 + " " + cadena2 + " " + cadena3 + " " + cadena4;
+        
            break
       } 
               
@@ -60,8 +70,8 @@ function mostrarNumero(){
         let cadenaq3 = cadenaquince.slice(7, 11);
         let cadenaq2 = cadenaquince.slice(3,7);
         let cadenaq1 = cadenaquince.slice(0, 3);
-        mensajeCard.innerHTML= cadenaq1 + " " + cadenaq2 + " " + cadenaq3 + " " + cadenaq4; 
-        alert("15")
+        mensajeCard = cadenaq1 + " " + cadenaq2 + " " + cadenaq3 + " " + cadenaq4; 
+       
         break 
       }
           
@@ -71,8 +81,8 @@ function mostrarNumero(){
         let cadenac3 = cadenacatorce.slice(6, 10);
         let cadenac2 = cadenacatorce.slice(2,6);
         let cadenac1 = cadenacatorce.slice(0, 2);
-        mensajeCard.innerHTML= cadenac1 + " " + cadenac2 + " " + cadenac3 + " " + cadenac4;
-           alert("14")
+        mensajeCard = cadenac1 + " " + cadenac2 + " " + cadenac3 + " " + cadenac4;
+          
              break 
       }  
       case 13:{
@@ -81,21 +91,58 @@ function mostrarNumero(){
         let cadenat3 = cadenatrece.slice(5, 9);
         let cadenat2 = cadenatrece.slice(1,5);
         let cadenat1 = cadenatrece.slice(0, 1);
-        mensajeCard.innerHTML= cadenat1 + " " + cadenat2 + " " + cadenat3 + " " + cadenat4;
-          alert("13")
+        mensajeCard= cadenat1 + " " + cadenat2 + " " + cadenat3 + " " + cadenat4;
+       
+          
               break 
       }        
       default:  
        alert("cadena no valida")
   }
+
+  const  card = document.getElementById("card");
+  const contenido =
+    ` <div class="logo_card_franquicia">
+          <i class="bx bxs-credit-card-front"></i>
+          <p>Franquicia</p>
+      </div>
+      <div class="name_card"></div>
+      <div class="card_text">
+        <p>${mensajeCard}</p>
+        <p class="card_name">Alison Peth</p>
+     </div>`;
+
+  if (validarNum == true) {
+    vistaForm.style.display = 'none';
+    vistaValid.style.display = 'block';
+    mensajeValido.innerHTML = mensajeCard;
+    card.classList.add("cards_tres")
+    card.innerHTML = contenido
+
+
+  }else{
+    vistaForm.style.display = 'none';
+    vistaInvalido.style.display = 'block';
+    mensajeInvalido.innerHTML = mensajeCard
+  }
   
 
 }
 
-function validarNumero(){
-  const validarNum =  validator.isValid(document.getElementById("input-card").value);
-  alert(validarNum);
+const modal = document.getElementById("mi_modal");
+const textModal = document.getElementById("text_modal")
+const cerrar = document.getElementById('close');
+
+function modalLetras() {
+  modal.style.display = 'block';
+  textModal.innerText = "Por favor escribir un mensaje valido"
 }
 
+function modalNumeros(){
+  modal.style.display = 'block';
+  textModal.innerText = "La tarjeta debe tener entre 13 y 16 números";
+}
 
-//console.log(validator);
+cerrar.addEventListener('click', function(){
+  modal.style.display = 'none';
+});

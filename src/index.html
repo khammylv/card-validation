@@ -3,23 +3,153 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validador de tarjetas</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   </head>
   <body>
-    <header></header>
-    <main>
-      <div>
-        <form action="" id="form-card">
-           <input type="text" inputmode="numeric" id="input-card">
-           <button type="submit">validar</button> 
-        </form>
+    <header>
+      <div class="name__menu">
+        <p>Alison Peth</p>
+    </div>
+    <div class="profile" id="profile">
+        <i class="bx bx-bell"></i>
+        <div class="profile-picture"></div>
+    </div>
+    </header>
+    <aside class="menu__side" id="menu_side">
+      <div class="name__page">
+          <i class="bx bxs-wallet"></i>
+          <h4>Wallet App</h4>
+      </div>
+      <div class="options__menu">	
 
-        <p id="mensaje-card"></p>
-       
-     </div>
+          <a href="#" >
+              <div class="option">
+                  <i class="bx bx-basket" title="Compras" ></i>
+                  <h4>Compras</h4>
+              </div>
+          </a>
+
+          <a href="#" class="selected">
+              <div class="option"  >
+                  <i class="bx bx-credit-card-front" title="Tarjetas" ></i>
+                  <h4>Tarjetas</h4>
+              </div>
+          </a>
+          
+          <a href="#">
+              <div class="option">
+                  <i class="bx bx-user" title="Cuenta" ></i> 
+                  <h4>Cuenta</h4>
+              </div>
+          </a>
+
+          <a href="#">
+              <div class="option">
+                  <i class="bx bx-sort-alt-2"  title="Transacciones"></i>
+                  <h4>Transacciones</h4>
+              </div>
+          </a>
+
+          <a href="#">
+              <div class="option">
+                  <i class="bx bx-cog" title="Ajustes" ></i>
+                  <h4>Ajustes</h4>
+              </div>
+          </a>
+
+          <a href="#">
+              <div class="option">
+                  <i class="bx bx-log-out" title="Cerrar sesión"></i>
+                  <h4>Cerrar sesión</h4>
+              </div>
+          </a>
+
+      </div>
+
+  </aside>
+    <main>
+        <section id="mi_modal" class="modal">
+            <div class="flex_modal" id="flex_modal">
+                <div class="contenido_modal">
+                     <div class="modal_header flex_modal">
+                        <div class="logo_modal">
+                            <i class="bx bxs-wallet"></i>
+                        <h2>Wallet App</h2>
+                        </div>
+                        <span class="close" id="close">&times;</span>
+                     </div>
+                     <div class="modal_body">
+                        <p class="text_modal" id="text_modal">Solo se pueden ingresar valores numericos y no se puede
+                            enviar un mensaje vacio
+                        </p>
+                     </div>
+                </div>
+            </div>
+    
+        </section>
+ 
+      <section class="cards">
+        <div class="cards_uno">
+          <div class="logo_card">
+              <i class="bx bxl-visa"></i>
+          </div>
+          <div class="name_card"></div>
+          <div class="card_text">
+              <p>555 4120 555</p>
+              <p class="card_name">Alison Peth</p>
+          </div>
+         
+          
+      </div>
+      <div class="cards_dos">
+          <div class="logo_card">
+              <i class="bx bxl-mastercard"></i>
+              
+          </div>
+          <div class="name_card"></div>
+          <div class="card_text">
+             <p>555 4120 555</p>
+             <p class="card_name">Alison Peth</p>
+          </div>
+      </div>
+      <div  id="card">
+          
+      </div>
+      </section>
+      <section class="form" id="form">
+        <div class="form_cubo">
+            <form action="" id="form-card" class="formulario">
+              <label action="" class="label_card">A continuación digite el número de su tarjeta<span class="obligatorio">*</span></label>
+              <input type="text" inputmode="numeric" id="input-card" placeholder="Escribe el número de tú tarjeta:" class="input_card">
+              <button type="submit" class="btn_form">validar</button> 
+           </form>
+  
+    
+         
+       </div>
+      </section>
+      <section class="card_valid" id="card_valid">
+        <div class="mensaje valid">
+           <i class="bx bx-check-circle"></i>
+           <h2 class="mensaje_card valid">Transacción exitosa</h2>
+        </div>
+        <p class="mensaje__card">La tarjeta <span id="numero_card_valid" class="span_tarjeta"></span>ha sido registrada exitosamente</p>
+    </section>
+    <section class="card_invalid" id="card_invalid">
+        <div class="mensaje invalid">
+            <i class="bx bx-x-circle"></i>
+            <h2 class="mensaje_card invalid">Transacción fallida</h2>
+        </div>
+         <p class="mensaje__card">La tarjeta <span id="numero_card_invalid" class="span_tarjeta"></span>no es una tarjeta valida</p>
+    </section> 
+     
     </main>
     <footer></footer>
     <script src="index.js" type="module"></script>
+    
   </body>
 </html>
