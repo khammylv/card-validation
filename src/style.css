@@ -59,7 +59,7 @@ header{
     width: 60px;
     height: 60px;
     background-size: cover;
-    background-image: url(/img/portrait-6040876_1920.jpg);
+    background-image: url(img/portrait-6040876_1920.jpg);
     border: 2px solid  var(--color_header_letra);
     border-radius: 50%;
 }
