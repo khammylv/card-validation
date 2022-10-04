@@ -92,10 +92,14 @@ header{
     left: 0;
     color: white;
     font-size: 18px;
-    overflow: hidden;
-    border-right: 20px solid var(--color_menu);
-   
 }
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
 
 .name__page{
     padding: 20px 30px;
@@ -109,11 +113,7 @@ header{
     margin-right: 20px;
 }
 
-.options__menu{
-    padding: 20px 30px;
-    position: absolute;
-    top: 80px;
-}
+
 
 .options__menu a{
     color: #ffffffb2;
@@ -150,6 +150,7 @@ a.selected{
 
 main{
     padding-top: 20px;
+    overflow: hidden;
 }
 
 .cards{
