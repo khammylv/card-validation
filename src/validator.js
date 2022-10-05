@@ -57,7 +57,44 @@ return resulFinal.join('') + letras.join('');
     
    
   
-} 
+}, 
+
+issuer : function (creditCardNumber) {
+  const numVal = Array.from(creditCardNumber);
+  const valorEmisor = numVal.slice(0,4)
+  let issuer;
+  
+  
+  for(let i = 0; i <valorEmisor.length; i++) {
+    if(valorEmisor[0] == 1 && valorEmisor[1] == 8 && valorEmisor[2] == 0 && valorEmisor[3] ==0){
+      issuer = "JCB"
+    }
+
+    if (valorEmisor[0] == 4){
+       issuer = "Visa"
+   }
+
+     
+   if (valorEmisor[0] == 5 && valorEmisor[1] == 1){
+       issuer = "MasterCard"
+   }
+
+     
+   if (valorEmisor[0] == 6 && valorEmisor[1] == 0 && valorEmisor[2] == 1 && valorEmisor[3] ==1){
+       issuer = "Discover"
+   }
+
+   
+       
+ } 
+
+if(issuer == undefined){
+   issuer = "Franquicia"
+}
+
+  return issuer;
+
+}
 
 };
 

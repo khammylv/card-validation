@@ -41,4 +41,30 @@ describe('validator', () => {
       expect(validator.maskify('helloworld')).toBe('######orld');
     });
   });
+
+
+  describe('validator.issuer', () => {
+    it('debería ser una función', () => {
+      expect(typeof validator.issuer).toBe('function');
+    });
+    
+    it('Debería retornar "Visa" para "4008485750283811"', () => {
+      expect(validator.issuer('4008485750283811')).toBe('Visa');
+    });
+
+    it('Debería retornar "JCB" para "1800123456841026"', () => {
+      expect(validator.issuer('1800123456841026')).toBe('JCB');
+    });
+
+    it('Debería retornar "Discover" para "601101245645"', () => {
+      expect(validator.issuer('601101245645')).toBe('Discover');
+    });
+
+    it('Debería retornar "MasterCard" para "5134521456987456"', () => {
+      expect(validator.issuer('5134521456987456')).toBe('MasterCard');
+    });
+  
+  });
+
 });
+

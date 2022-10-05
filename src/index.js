@@ -39,6 +39,7 @@ formCard.addEventListener("submit", e=>{
 function mostrarNumero(){
   const validarNum =  validator.isValid(document.getElementById("input-card").value);
   const mostrarNum = validator.maskify(document.getElementById("input-card").value);
+  const entradaEmisor = validator.issuer(document.getElementById("input-card").value);
   const mensajeValido = document.getElementById("numero_card_valid");
   const mensajeInvalido = document.getElementById("numero_card_invalid");
   const vistaForm = document.getElementById("form");
@@ -99,12 +100,13 @@ function mostrarNumero(){
       default:  
        alert("cadena no valida")
   }
+  let cardFranquicia = entradaEmisor 
 
   const  card = document.getElementById("card");
   const contenido =
     ` <div class="logo_card_franquicia">
           <i class="bx bxs-credit-card-front"></i>
-          <p>Franquicia</p>
+          <p>${cardFranquicia}</p>
       </div>
       <div class="name_card"></div>
       <div class="card_text">
