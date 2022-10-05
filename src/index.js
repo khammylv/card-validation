@@ -45,13 +45,8 @@ function mostrarNumero(){
   const vistaForm = document.getElementById("form");
   const vistaValid = document.getElementById("card_valid");
   const vistaInvalido = document.getElementById("card_invalid");
-  
-
-  
-
   let mensajeCard;
- 
-  let largoCard = mostrarNum.length;
+ let largoCard = mostrarNum.length;
  // mostrar en pantalla
   switch (largoCard){
       case 16:{
@@ -101,7 +96,6 @@ function mostrarNumero(){
        alert("cadena no valida")
   }
   let cardFranquicia = entradaEmisor 
-
   const  card = document.getElementById("card");
   const contenido =
     ` <div class="logo_card_franquicia">
@@ -113,9 +107,7 @@ function mostrarNumero(){
         <p>${mensajeCard}</p>
         <p class="card_name">Alison Peth</p>
      </div>`;
-
-
-  const contenidoVisa =
+ const contenidoVisa =
   ` <div class="logo_card">
       <i class="bx bxl-visa"></i>
        
@@ -125,7 +117,6 @@ function mostrarNumero(){
          <p>${mensajeCard}</p>
          <p class="card_name">Alison Peth</p>
     </div>`;
-    
     const contenidoMasterCard =
     ` <div class="logo_card">
         <i class="bx bxl-mastercard"></i>
@@ -136,9 +127,7 @@ function mostrarNumero(){
            <p>${mensajeCard}</p>
            <p class="card_name">Alison Peth</p>
       </div>`; 
-    
-
-  let tarjetas;
+    let tarjetas;
 
   if(cardFranquicia == "Visa"){
     tarjetas =contenidoVisa
@@ -154,10 +143,6 @@ function mostrarNumero(){
     card.classList.add("cards_tres")
     tarjetas = contenido
   }
-  
-
-
-
   if (validarNum == true) {
     vistaForm.style.display = 'none';
     vistaValid.style.display = 'block';
@@ -173,21 +158,17 @@ function mostrarNumero(){
   
 
 }
-
 const modal = document.getElementById("mi_modal");
 const textModal = document.getElementById("text_modal")
 const cerrar = document.getElementById('close');
-
 function modalLetras() {
   modal.style.display = 'block';
   textModal.innerText = "Por favor escribir un mensaje valido"
 }
-
 function modalNumeros(){
   modal.style.display = 'block';
   textModal.innerText = "La tarjeta debe tener entre 13 y 16 números";
 }
-
 cerrar.addEventListener('click', function(){
   modal.style.display = 'none';
 });
