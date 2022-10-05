@@ -56,10 +56,8 @@ function mostrarNumero(){
         let cadena2 = cadena.slice(4,8);
         let cadena1 = cadena.slice(0, 4);
         mensajeCard = cadena1 + " " + cadena2 + " " + cadena3 + " " + cadena4;
-        
-           break
+        break
       } 
-              
       case 15:{
         let cadenaquince =mostrarNum
         let cadenaq4 = cadenaquince.slice(-4);
@@ -67,10 +65,8 @@ function mostrarNumero(){
         let cadenaq2 = cadenaquince.slice(3,7);
         let cadenaq1 = cadenaquince.slice(0, 3);
         mensajeCard = cadenaq1 + " " + cadenaq2 + " " + cadenaq3 + " " + cadenaq4; 
-       
         break 
       }
-          
       case 14:{
         let cadenacatorce = mostrarNum
         let cadenac4 = cadenacatorce.slice(-4);
@@ -78,8 +74,7 @@ function mostrarNumero(){
         let cadenac2 = cadenacatorce.slice(2,6);
         let cadenac1 = cadenacatorce.slice(0, 2);
         mensajeCard = cadenac1 + " " + cadenac2 + " " + cadenac3 + " " + cadenac4;
-          
-             break 
+          break 
       }  
       case 13:{
         let cadenatrece = mostrarNum
@@ -88,9 +83,7 @@ function mostrarNumero(){
         let cadenat2 = cadenatrece.slice(1,5);
         let cadenat1 = cadenatrece.slice(0, 1);
         mensajeCard= cadenat1 + " " + cadenat2 + " " + cadenat3 + " " + cadenat4;
-       
-          
-              break 
+        break 
       }        
       default:  
        alert("cadena no valida")
@@ -110,7 +103,6 @@ function mostrarNumero(){
  const contenidoVisa =
   ` <div class="logo_card">
       <i class="bx bxl-visa"></i>
-       
     </div>
     <div class="name_card"></div>
     <div class="card_text">
@@ -120,7 +112,6 @@ function mostrarNumero(){
     const contenidoMasterCard =
     ` <div class="logo_card">
         <i class="bx bxl-mastercard"></i>
-         
       </div>
       <div class="name_card"></div>
       <div class="card_text">
@@ -128,12 +119,9 @@ function mostrarNumero(){
            <p class="card_name">Alison Peth</p>
       </div>`; 
     let tarjetas;
-
-  if(cardFranquicia == "Visa"){
+    if(cardFranquicia == "Visa"){
     tarjetas =contenidoVisa
-   
-    card.classList.add("cards_uno")
-    
+   card.classList.add("cards_uno")
   }
   if(cardFranquicia == "MasterCard"){
    tarjetas = contenidoMasterCard;
@@ -148,15 +136,11 @@ function mostrarNumero(){
     vistaValid.style.display = 'block';
     mensajeValido.innerHTML = mensajeCard;
     card.innerHTML = tarjetas
-
-
   }else{
     vistaForm.style.display = 'none';
     vistaInvalido.style.display = 'block';
     mensajeInvalido.innerHTML = mensajeCard
   }
-  
-
 }
 const modal = document.getElementById("mi_modal");
 const textModal = document.getElementById("text_modal")
