@@ -118,6 +118,11 @@ function mostrarNumero(){
            <p>${mensajeCard}</p>
            <p class="card_name">Alison Peth</p>
       </div>`; 
+ 
+  if (validarNum == true) {
+    vistaForm.style.display = 'none';
+    vistaValid.style.display = 'block';
+    mensajeValido.innerHTML = mensajeCard;
     let tarjetas;
     if(cardFranquicia == "Visa"){
     tarjetas =contenidoVisa
@@ -131,11 +136,8 @@ function mostrarNumero(){
     card.classList.add("cards_tres")
     tarjetas = contenido
   }
-  if (validarNum == true) {
-    vistaForm.style.display = 'none';
-    vistaValid.style.display = 'block';
-    mensajeValido.innerHTML = mensajeCard;
-    card.innerHTML = tarjetas
+    
+  card.innerHTML = tarjetas
   }else{
     vistaForm.style.display = 'none';
     vistaInvalido.style.display = 'block';
