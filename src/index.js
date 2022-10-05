@@ -114,12 +114,55 @@ function mostrarNumero(){
         <p class="card_name">Alison Peth</p>
      </div>`;
 
+
+  const contenidoVisa =
+  ` <div class="logo_card">
+      <i class="bx bxl-visa"></i>
+       
+    </div>
+    <div class="name_card"></div>
+    <div class="card_text">
+         <p>${mensajeCard}</p>
+         <p class="card_name">Alison Peth</p>
+    </div>`;
+    
+    const contenidoMasterCard =
+    ` <div class="logo_card">
+        <i class="bx bxl-mastercard"></i>
+         
+      </div>
+      <div class="name_card"></div>
+      <div class="card_text">
+           <p>${mensajeCard}</p>
+           <p class="card_name">Alison Peth</p>
+      </div>`; 
+    
+
+  let tarjetas;
+
+  if(cardFranquicia == "Visa"){
+    tarjetas =contenidoVisa
+   
+    card.classList.add("cards_uno")
+    
+  }
+  if(cardFranquicia == "MasterCard"){
+   tarjetas = contenidoMasterCard;
+    card.classList.add("cards_dos")
+  }
+  if(cardFranquicia != "MasterCard" && cardFranquicia != "Visa"){
+    card.classList.add("cards_tres")
+    tarjetas = contenido
+  }
+  
+
+
+
   if (validarNum == true) {
     vistaForm.style.display = 'none';
     vistaValid.style.display = 'block';
     mensajeValido.innerHTML = mensajeCard;
-    card.classList.add("cards_tres")
-    card.innerHTML = contenido
+    card.innerHTML = tarjetas
 
 
   }else{
